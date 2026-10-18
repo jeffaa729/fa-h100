@@ -1,0 +1,26 @@
+[project]
+name = "gpu-kernels"
+version = "0.1.0"
+description = "Standalone CUDA kernel correctness and library comparisons"
+requires-python = ">=3.10"
+dependencies = [
+    "flash-attn>=2.8.3.post1",
+    "matplotlib>=3.10",
+    "numpy>=2.2.6",
+    "packaging>=24.2",
+    "torch>=2.11.0",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+flash-attn = { index = "astral-cu128" }
+
+[[tool.uv.index]]
+name = "astral-cu128"
+url = "https://wheels.astral.sh/simple/cu128/"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
